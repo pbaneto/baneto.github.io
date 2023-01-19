@@ -1,8 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from './NavBar';
-import { PayPalScriptProvider } from '@paypal/react-paypal-js';
-import Checkout from './Checkout';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 
 function FirstPhoto({modelo}){
@@ -27,14 +26,14 @@ function ThirdPhoto({modelo}){
 export default function Buy() {
   const location = useLocation();
   let modelo = location.state.modelo;
-  // let price = location.state.price;
+  let price = location.state.price;
 
   const CLIENT_ID = 'test';
 
   return (
     <>
       <NavBar />
-      <div classNameName="container-fluid">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-2"></div>
 
@@ -78,29 +77,42 @@ export default function Buy() {
             <p>Bueno, bonito y barato.</p>
             <p>Envio a domicilio.</p>
 
-            {/* <div>
+            <div>
               <button className="button-buy">
                 <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"/>
-                Comprar ya!
+                <b> Compra compra!</b>
               </button>
-            </div> */}
-
-            <PayPalScriptProvider options={{ "client-id": CLIENT_ID }}>
-            <div className="App">
-              <header className="App-header">
-                <p>
-                  Buy an atom!
-                </p>
-              <Checkout />
-              </header>
             </div>
+
+            <PayPalScriptProvider options={{"client-id": CLIENT_ID, "currency": "EUR" }}>
+              <div className="App">
+                <header className="App-header">
+
+
+
+                  <PayPalButtons
+                    createOrder={(data, actions) => {
+                        return actions.order.create({
+                            purchase_units: [
+                                {
+                                    amount: {
+                                        value: price,
+                                    },
+                                },
+                            ],
+                        });
+                    }}
+                    onApprove={(data, actions) => {
+                        return actions.order.capture().then((details) => {
+                            const name = details.payer.name.given_name;
+                            alert(`Bien hecho ${name}!`);
+                        });
+                    }}
+                />
+                </header>
+              </div>
             </PayPalScriptProvider>
 
-            {/* <div id="paypal-button-container"></div> */}
-            <script
-              src="https://www.paypal.com/sdk/js?client-id=&currency=EUR"
-              data-sdk-integration-source="button-factory"
-            ></script>
           </div>
 
           <div className="col-md-2"></div>
