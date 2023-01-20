@@ -1,7 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import NavBar from './NavBar';
+import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+
+// const clientId = process.env.REACT_APP_CLIENT_ID;
 
 
 function FirstPhoto({modelo}){
