@@ -1,9 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import NavBar from './NavBar';
 import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-
-// const clientId = process.env.REACT_APP_CLIENT_ID;
 
 
 function FirstPhoto({modelo}){
@@ -30,8 +29,15 @@ export default function Buy() {
   let modelo = location.state.modelo;
   let price = location.state.price;
 
-  const CLIENT_ID = 'test';
+  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
+  const [isShown, setIsShown] = useState(false);
+
+  const showBuy = Event => {
+    setIsShown(current => !current);
+  };
+
+  
   return (
     <>
       <NavBar />
@@ -80,18 +86,18 @@ export default function Buy() {
             <p>Envio a domicilio.</p>
 
             <div>
-              <button className="button-buy">
-                <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"/>
+              <button id="button-buy" onClick={showBuy}>
+                <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"
+                  style={{
+                    transform: isShown ? 'rotate(0deg)': 'rotate(180deg)'
+                  }}/>
                 <b> Compra compra!</b>
               </button>
             </div>
-
+            {isShown && (
             <PayPalScriptProvider options={{"client-id": CLIENT_ID, "currency": "EUR" }}>
               <div className="App">
                 <header className="App-header">
-
-
-
                   <PayPalButtons
                     createOrder={(data, actions) => {
                         return actions.order.create({
@@ -114,6 +120,7 @@ export default function Buy() {
                 </header>
               </div>
             </PayPalScriptProvider>
+          )}
 
           </div>
 
