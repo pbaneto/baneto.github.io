@@ -1,26 +1,26 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import NavBar from './NavBar';
 import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 
-function FirstPhoto({modelo}){
+function UriPendientes(modelo){
+  
   return(
-    <img src={require(`./photos/modelos/${modelo}.jpg`)} alt="primera" id="primera" className="img-fluid"/>
-  );
-}
-
-function SecondPhoto({modelo}){
-  return(
-    <img src={require(`./photos/ear/${modelo}_bn.jpg`)} alt="segunda" id="segunda" className="img-fluid"/>
-  );
-}
-
-function ThirdPhoto({modelo}){
-  return(
-    <img src={require(`./photos/ear/${modelo}_c.jpg`)} alt="tercera" id="tercera" className="img-fluid"/>
-  );
+    <div className="container-fluid">
+      <p>
+        <span>
+          <Link to="/" className="uri-pendientes">Pendients</Link>
+        </span>
+        <span>/</span>
+        <span className="uri-modelo">
+          {modelo.modelo}
+          </span>
+      </p>
+    </div>);
 }
 
 
@@ -32,44 +32,73 @@ export default function Buy() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
   const [isShown, setIsShown] = useState(false);
-
   const showBuy = Event => {
     setIsShown(current => !current);
   };
 
-  
+  const [photos, setPhotos] = useState([
+    { uri: 'modelos/' + modelo, isActive: true },
+    { uri: 'ear/' + modelo + '_bn', isActive: false },
+    { uri: 'ear/' + modelo + '_c', isActive: false },
+  ]);
+
+  function setActivePhoto(index){
+    let newPhotos = photos.map((photo, i) => {
+      if (i === index) {
+        return { ...photo, isActive: true }
+      }
+      return { ...photo, isActive: false }
+    })
+    setPhotos(newPhotos)
+  }
+
   return (
     <>
       <NavBar />
+      <UriPendientes modelo={modelo}/>
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-2"></div>
 
           <div className="col-md-1">
-            <div className="row">
-              <FirstPhoto modelo={modelo}/>
-            </div>
-            <div className="row">
-              <SecondPhoto modelo={modelo}/>
-            </div>
-            <div className="row">
-              <ThirdPhoto modelo={modelo}/>
-            </div>
+            {photos.map((photo, index) => (
+              <img
+                key={photo.uri}
+                alt={photo.uri}
+                src={require(`./photos/${photo.uri}.jpg`)} 
+                className={'img-fluid'}
+                onClick={() => setActivePhoto(index)}
+                style={{opacity: photo.isActive ? 1 : 0.5}}
+              />
+            ))}
           </div>
 
           <div className="col-md-4">
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-
+    
               <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <FirstPhoto modelo={modelo}/>
+
+                <div className={"carousel-item" + (photos[0].isActive ? "active" : "")} >
+                  <img 
+                    src={require(`./photos/${photos[0].uri}.jpg`)} 
+                    className='img-fluid'
+                    alt='primera'/>
                 </div>
-                <div className="carousel-item">
-                  <SecondPhoto modelo={modelo}/>
+
+                <div className={"carousel-item" + (photos[1].isActive ? "active" : "")}>
+                  <img 
+                    src={require(`./photos/${photos[1].uri}.jpg`)} 
+                    className='img-fluid'
+                    alt='segunda'/>
                 </div>
-                <div className="carousel-item">
-                  <ThirdPhoto modelo={modelo}/>
+
+                <div className={"carousel-item" + (photos[2].isActive ? "active" : "")}>
+                  <img 
+                    src={require(`./photos/${photos[2].uri}.jpg`)} 
+                    className='img-fluid'
+                    alt='tercera'/>
                 </div>
+
               </div>
 
               <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
