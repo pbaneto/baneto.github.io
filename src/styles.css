@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Fira Code', monospace;
   background-color: #e8d89a;
 }
 
@@ -11,9 +11,12 @@ body {
 }
 
 
-
+.images-container{
+  margin-left: 5%;
+  margin-right: 5%;
+}
 .card-custom{
-  margin: 5%;
+  margin: 10%;
 }
 .card-custom:hover img {
   opacity: 0.7;
@@ -76,4 +79,26 @@ Link:focus {
 }
 .uri-modelo{
   margin-left: 1%;
+}
+
+.circle{
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border:1px solid black;
+  margin-left: 7%;
+  cursor: pointer;
+}
+
+.circle-gold{
+  background-color: gold;
+  color: gold;
+}
+
+.circle-silver{
+  background-color: silver;
+  color: silver;
 }

@@ -1,14 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import NavBar from './NavBar';
 import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import Zoom from 'react-img-hover-zoom'
 
-
-function UriPendientes(modelo){
-  
+function UriPendientes(photo_name){
+  let show = photo_name.photo_name.replace('_', ' ');
   return(
     <div className="container-fluid">
       <p>
@@ -17,7 +17,7 @@ function UriPendientes(modelo){
         </span>
         <span>/</span>
         <span className="uri-modelo">
-          {modelo.modelo}
+          {show}
           </span>
       </p>
     </div>);
@@ -25,22 +25,37 @@ function UriPendientes(modelo){
 
 
 export default function Buy() {
+  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+
   const location = useLocation();
   let modelo = location.state.modelo;
   let price = location.state.price;
 
-  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+  const [colorActual, newColor] = useState(location.state.color);
+  console.log('colorActual', colorActual)
+  const changeColor = (color) => {
+    newColor(color);
+  }
+  let photo_name = [modelo, colorActual].join('_');
+
 
   const [isShown, setIsShown] = useState(false);
   const showBuy = Event => {
     setIsShown(current => !current);
   };
 
-  const [photos, setPhotos] = useState([
-    { uri: 'modelos/' + modelo, isActive: true },
-    { uri: 'ear/' + modelo + '_bn', isActive: false },
-    { uri: 'ear/' + modelo + '_c', isActive: false },
-  ]);
+  function photoUris(photo_name){
+    return [{ uri: 'modelos/' + photo_name, isActive: true },
+            { uri: 'ear/' + photo_name + '_bn', isActive: false },
+            { uri: 'ear/' + photo_name + '_c', isActive: false },]
+  }
+
+  const [photos, setPhotos] = useState(photoUris(photo_name));
+
+  useEffect(() => {
+    setPhotos(photoUris(photo_name));
+  }, [photo_name])
+
 
   function setActivePhoto(index){
     let newPhotos = photos.map((photo, i) => {
@@ -55,7 +70,7 @@ export default function Buy() {
   return (
     <>
       <NavBar />
-      <UriPendientes modelo={modelo}/>
+      <UriPendientes photo_name={photo_name}/>
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-2"></div>
@@ -65,7 +80,7 @@ export default function Buy() {
               <img
                 key={photo.uri}
                 alt={photo.uri}
-                src={require(`./photos/${photo.uri}.jpg`)} 
+                src={require(`./photos/${photo.uri}.jpg`)}
                 className={'img-fluid'}
                 onClick={() => setActivePhoto(index)}
                 style={{opacity: photo.isActive ? 1 : 0.5}}
@@ -75,30 +90,40 @@ export default function Buy() {
 
           <div className="col-md-4">
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-    
-              <div className="carousel-inner">
 
+              <div className="carousel-inner">
                 <div className={"carousel-item" + (photos[0].isActive ? "active" : "")} >
-                  <img 
-                    src={require(`./photos/${photos[0].uri}.jpg`)} 
+                  <Zoom
+                    img={require(`./photos/${photos[0].uri}.jpg`)}
+                    zoomScale={2}
+                    width={600}
+                    height={600}
                     className='img-fluid'
-                    alt='primera'/>
+                    alt='primera'
+                  />
                 </div>
 
                 <div className={"carousel-item" + (photos[1].isActive ? "active" : "")}>
-                  <img 
-                    src={require(`./photos/${photos[1].uri}.jpg`)} 
+                  <Zoom
+                    img={require(`./photos/${photos[1].uri}.jpg`)}
+                    zoomScale={2}
+                    width={600}
+                    height={600}
                     className='img-fluid'
-                    alt='segunda'/>
+                    alt='segunda'
+                  />
                 </div>
 
                 <div className={"carousel-item" + (photos[2].isActive ? "active" : "")}>
-                  <img 
-                    src={require(`./photos/${photos[2].uri}.jpg`)} 
+                  <Zoom
+                    img={require(`./photos/${photos[2].uri}.jpg`)}
+                    zoomScale={2}
+                    width={600}
+                    height={600}
                     className='img-fluid'
-                    alt='tercera'/>
+                    alt='tercera'
+                  />
                 </div>
-
               </div>
 
               <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -113,6 +138,16 @@ export default function Buy() {
             <p>PENDIENTS</p>
             <p>Bueno, bonito y barato.</p>
             <p>Envio a domicilio.</p>
+
+            <p>Elige un color</p>
+            <div className="row">
+              <div className="circle circle-gold" onClick={() => changeColor('oro')}>
+                o
+              </div>
+              <div className="circle circle-silver" onClick={() => changeColor('plata')}>
+                p
+              </div>
+            </div>
 
             <div>
               <button id="button-buy" onClick={showBuy}>

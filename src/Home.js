@@ -6,12 +6,13 @@ import './styles.css';
 import NavBar from './NavBar';
 
 
-function Modelo({modelo, price}){
+function Modelo({modelo, color, price}){
+  let photo_name = [modelo, color].join('_')
   return(
     <div className="card-custom">
-      <img className='img-fluid' src={require(`./photos/modelos/${modelo}.jpg`)} alt={modelo}/>
+      <img className='img-fluid' src={require(`./photos/modelos/${photo_name}.jpg`)} alt={photo_name}/>
 
-      <Link to="/buy" state={{modelo: modelo, price: price}}>
+      <Link to="/buy" state={{modelo: modelo, color:color, price: price}}>
         Comprate algo
       </Link>
     </div>
@@ -20,20 +21,19 @@ function Modelo({modelo, price}){
 
 function GridModels(){
   return(
-    <Grid container spacing={0.5}>
-      <Grid item xm={12} sm={6} md={4}>
-        <Modelo modelo={'aros_oro'} price={10}/>
+    <div className='images-container'>
+      <Grid container>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'aros'} color={'oro'} price={10}/>
+        </Grid>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'cactus'} color={'plata'} price={7}/>
+        </Grid>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'plumas'} color={'plata'} price={10}/>
+        </Grid>
       </Grid>
-      <Grid item xm={12} sm={6} md={4}>
-        <Modelo modelo={'cactus_plata1'} price={7}/>
-      </Grid>
-      <Grid item xm={12} sm={6} md={4}>
-        <Modelo modelo={'aros_plata1'} price={10}/>
-      </Grid>
-      <Grid item xm={12} sm={6} md={4}>
-        <Modelo modelo={'plumas_oro'} price={7}/>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 

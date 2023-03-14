@@ -73,3 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Paypal integration
 https://github.com/paypal-examples/react-integration
+
+## TODO
+- zoom
+- refranes aleatorios abajo en la foto
+- instagram abajo
+- contacto
