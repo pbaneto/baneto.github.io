@@ -12,10 +12,10 @@ function Modelo({modelo, color, price}){
     <div className="card-custom">
       <img className='img-fluid' src={require(`./photos/modelos/${photo_name}.jpg`)} alt={photo_name}/>
       <div className='nombre-precio'>
-          <Link to="/buy" className='comprate_algo' state={{modelo: modelo, color:color, price: price}}>
-            Comprar {modelo}
-          </Link>
+        <Link to="/buy" className='comprate_algo' state={{modelo: modelo, color:color, price: price}}>
+          Comprar {modelo}
           <span className='price'>{price} €</span>
+        </Link>
       </div>
     </div>
   );
