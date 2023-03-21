@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import NavBar from './NavBar';
 import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import Zoom from 'react-img-hover-zoom'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css'
+import InnerImageZoom from 'react-inner-image-zoom'
+
 
 function UriPendientes(photo_name){
   let show = photo_name.photo_name.replace('_', ' ');
@@ -23,6 +25,20 @@ function UriPendientes(photo_name){
     </div>);
 }
 
+function PhotoZoom(uri){
+  return(
+    <div>
+      <InnerImageZoom
+        src={require(`./photos/${uri.uri}.jpg`)}
+        zoomScale={2}
+        width={550}
+        height={550}
+      />
+    </div>
+    );
+}
+
+
 
 export default function Buy() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -32,7 +48,6 @@ export default function Buy() {
   let price = location.state.price;
 
   const [colorActual, newColor] = useState(location.state.color);
-  console.log('colorActual', colorActual)
   const changeColor = (color) => {
     newColor(color);
   }
@@ -67,6 +82,7 @@ export default function Buy() {
     setPhotos(newPhotos)
   }
 
+
   return (
     <>
       <NavBar />
@@ -93,51 +109,28 @@ export default function Buy() {
 
               <div className="carousel-inner">
                 <div className={"carousel-item" + (photos[0].isActive ? "active" : "")} >
-                  <Zoom
-                    img={require(`./photos/${photos[0].uri}.jpg`)}
-                    zoomScale={2}
-                    width={600}
-                    height={600}
-                    className='img-fluid'
-                    alt='primera'
-                  />
+                  <PhotoZoom uri={photos[0].uri}/>
                 </div>
-
                 <div className={"carousel-item" + (photos[1].isActive ? "active" : "")}>
-                  <Zoom
-                    img={require(`./photos/${photos[1].uri}.jpg`)}
-                    zoomScale={2}
-                    width={600}
-                    height={600}
-                    className='img-fluid'
-                    alt='segunda'
-                  />
+                  <PhotoZoom uri={photos[1].uri}/>
                 </div>
-
                 <div className={"carousel-item" + (photos[2].isActive ? "active" : "")}>
-                  <Zoom
-                    img={require(`./photos/${photos[2].uri}.jpg`)}
-                    zoomScale={2}
-                    width={600}
-                    height={600}
-                    className='img-fluid'
-                    alt='tercera'
-                  />
+                  <PhotoZoom uri={photos[2].uri}/>
                 </div>
               </div>
-
               <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true" ></span>
               </a>
               <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                 <span className="carousel-control-next-icon" aria-hidden="true" ></span>
               </a>
+
             </div>
           </div>
           <div className="col-md-3">
-            <p>PENDIENTS</p>
+            <p><b>PENDIENTS</b></p>
             <p>Bueno, bonito y barato.</p>
-            <p>Envio a domicilio.</p>
+            <p>Envío a domicilio.</p>
 
             <p>Elige un color</p>
             <div className="row">

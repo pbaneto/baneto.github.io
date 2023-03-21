@@ -26,7 +26,7 @@ Link:active,
 Link:focus {
   outline: none;
 }
-.card-custom:hover .comprate-algo {
+/* .card-custom:hover .comprate-algo {
   opacity: 1;
 
 }
@@ -44,7 +44,33 @@ Link:focus {
   text-align: center;
   opacity: 0;
   transition: 0.35s ease;
+} */
+.instagram{
+  width: 80px;
 }
+.instagram img{
+  width: 40px;
+}
+
+.comprate_algo{
+  text-decoration: None;
+  color:black;
+  display: inline;
+  float: left;
+}
+.comprate_algo:hover{
+  font-weight: bold;
+  text-decoration: None;
+  color:black;
+}
+.nombre-precio{
+  padding: 10px;
+  overflow: auto;
+}
+.price{
+  float: right;
+}
+
 
 .carousel-item{
     width: 100%;
