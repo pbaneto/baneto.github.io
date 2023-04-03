@@ -13,7 +13,7 @@ function Modelo({modelo, color, price}){
       <img className='img-fluid' src={require(`./photos/modelos/${photo_name}.jpg`)} alt={photo_name}/>
       <div className='nombre-precio'>
         <Link to="/buy" className='comprate_algo' state={{modelo: modelo, color:color, price: price}}>
-          Comprar {modelo}
+          Comprar
           <span className='price'>{price} €</span>
         </Link>
       </div>
@@ -24,15 +24,24 @@ function Modelo({modelo, color, price}){
 function GridModels(){
   return(
     <div className='images-container'>
-      <Grid container>
+      <Grid container >
         <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'aros'} color={'oro'} price={10}/>
+          <Modelo modelo={'aros'} color={'plata'} price={10}/>
         </Grid>
         <Grid item xm={12} sm={6} md={4}>
           <Modelo modelo={'cactus'} color={'plata'} price={7}/>
         </Grid>
         <Grid item xm={12} sm={6} md={4}>
           <Modelo modelo={'plumas'} color={'plata'} price={10}/>
+        </Grid>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'caras'} color={'plata'} price={10}/>
+        </Grid>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'hojas'} color={'oro'} price={10}/>
+        </Grid>
+        <Grid item xm={12} sm={6} md={4}>
+          <Modelo modelo={'colgantes'} color={'oro'} price={10}/>
         </Grid>
       </Grid>
     </div>

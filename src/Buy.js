@@ -132,15 +132,10 @@ export default function Buy() {
             <p>Bueno, bonito y barato.</p>
             <p>Envío a domicilio.</p>
 
-            <p>Elige un color</p>
-            <div className="row">
-              <div className="circle circle-gold" onClick={() => changeColor('oro')}>
-                o
-              </div>
-              <div className="circle circle-silver" onClick={() => changeColor('plata')}>
-                p
-              </div>
-            </div>
+            <p>Elige un color:
+              <span onClick={() => changeColor('oro')}> <u>oro</u></span> /
+              <span onClick={() => changeColor('plata')}> <u>plata</u></span>
+            </p>
 
             <div>
               <button id="button-buy" onClick={showBuy}>

@@ -80,4 +80,3 @@ https://github.com/paypal-examples/react-integration
 - refranes aleatorios abajo en la foto
 - contacto
 - recortar fotos
-- aniadir cargando para cuando sale lo de pagar

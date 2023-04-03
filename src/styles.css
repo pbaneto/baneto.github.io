@@ -1,10 +1,10 @@
 body {
   font-family: 'Fira Code', monospace;
-  background-color: #e8d89a;
+  background-color: #d7d6d4;
 }
 
 .navbar-custom {
-  background-color: #e8d89a;
+  background-color: #d7d6d4;
 }
 .navbar-custom span {
   color: black;
@@ -26,30 +26,13 @@ Link:active,
 Link:focus {
   outline: none;
 }
-/* .card-custom:hover .comprate-algo {
-  opacity: 1;
 
-}
-
-.comprate-algo {
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-  color: black;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  transition: 0.35s ease;
-} */
 .instagram{
   width: 80px;
 }
 .instagram img{
   width: 40px;
+  margin-right: 19px;
 }
 
 .comprate_algo{
@@ -105,7 +88,7 @@ Link:focus {
 .uri-modelo{
   margin-left: 1%;
 }
-
+/*
 .circle{
   display: flex;
   width: 30px;
@@ -126,4 +109,4 @@ Link:focus {
 .circle-silver{
   background-color: silver;
   color: silver;
-}
+} */
