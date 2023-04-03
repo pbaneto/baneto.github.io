@@ -129,12 +129,13 @@ export default function Buy() {
           </div>
           <div className="col-md-3">
             <p><b>PENDIENTS</b></p>
-            <p>Bueno, bonito y barato.</p>
+            <p>Typical Spanish. Hechos a mano.</p>
+            <p>Bueno, bonito y barato</p>
             <p>Envío a domicilio.</p>
 
             <p>Elige un color:
-              <span onClick={() => changeColor('oro')}> <u>oro</u></span> /
-              <span onClick={() => changeColor('plata')}> <u>plata</u></span>
+              <span className="color" onClick={() => changeColor('oro')}> <u>oro</u></span> /
+              <span className="color" onClick={() => changeColor('plata')}> <u>plata</u></span>
             </p>
 
             <div>

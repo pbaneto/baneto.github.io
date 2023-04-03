@@ -88,6 +88,10 @@ Link:focus {
 .uri-modelo{
   margin-left: 1%;
 }
+
+.color:hover{
+  cursor: pointer;
+}
 /*
 .circle{
   display: flex;
