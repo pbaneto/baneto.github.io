@@ -144,7 +144,7 @@ export default function Buy() {
                   style={{
                     transform: isShown ? 'rotate(0deg)': 'rotate(180deg)'
                   }}/>
-                <b> Compra compra!</b>
+                <b> Comprate algo bonito!</b>
               </button>
             </div>
             {isShown && (
