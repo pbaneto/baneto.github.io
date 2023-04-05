@@ -75,7 +75,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 https://github.com/paypal-examples/react-integration
 
 ## TODO
-- arreglar el cambio de fotos carousel
 - aniadir loading en el dropdown de comprar import { CircularProgress } from '@mui/material';
 - refranes aleatorios abajo en la foto
 - contacto

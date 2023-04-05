@@ -108,13 +108,13 @@ export default function Buy() {
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
 
               <div className="carousel-inner">
-                <div className={"carousel-item" + (photos[0].isActive ? "active" : "")} >
+                <div className={"carousel-item " + (photos[0].isActive ? "active" : "")} >
                   <PhotoZoom uri={photos[0].uri}/>
                 </div>
-                <div className={"carousel-item" + (photos[1].isActive ? "active" : "")}>
+                <div className={"carousel-item " + (photos[1].isActive ? "active" : "")}>
                   <PhotoZoom uri={photos[1].uri}/>
                 </div>
-                <div className={"carousel-item" + (photos[2].isActive ? "active" : "")}>
+                <div className={"carousel-item " + (photos[2].isActive ? "active" : "")}>
                   <PhotoZoom uri={photos[2].uri}/>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function Buy() {
                   style={{
                     transform: isShown ? 'rotate(0deg)': 'rotate(180deg)'
                   }}/>
-                <b> Comprate algo bonito!</b>
+                <b> Comprar</b>
               </button>
             </div>
             {isShown && (
