@@ -39,6 +39,25 @@ function PhotoZoom(uri){
 }
 
 
+function RefranFooter(){
+
+  var refranes = require('./refranes/refranes.json');
+  var random_index = Math.floor(Math.random() * (refranes.length  + 1));
+
+  return(
+    <div className="row">
+    <div className="col-md-2"></div>
+    <div className="col-md-5 refran">
+      <p><i><q>
+        {refranes[random_index]}
+      </q></i></p>
+    </div>
+    <div className="col-md-5"></div>
+  </div>
+  );
+}
+
+
 
 export default function Buy() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
@@ -91,7 +110,8 @@ export default function Buy() {
         <div className="row">
           <div className="col-md-2"></div>
 
-          <div className="col-md-1">
+          {/* Large devices */}
+          <div className="col-md-1 d-none d-md-block">
             {photos.map((photo, index) => (
               <img
                 key={photo.uri}
@@ -103,6 +123,7 @@ export default function Buy() {
               />
             ))}
           </div>
+
 
           <div className="col-md-4">
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
@@ -127,7 +148,26 @@ export default function Buy() {
 
             </div>
           </div>
-          <div className="col-md-3">
+
+          {/* Small devices */}
+          <div className="col-md-1 d-block d-md-none">
+            <div className="row">
+              {photos.map((photo, index) => (
+              <div className="col-3">
+                <img
+                  key={photo.uri}
+                  alt={photo.uri}
+                  src={require(`./photos/${photo.uri}.jpg`)}
+                  className={'img-fluid'}
+                  onClick={() => setActivePhoto(index)}
+                  style={{opacity: photo.isActive ? 1 : 0.5}}
+                />
+              </div>
+            ))}
+            </div>
+          </div>
+
+          <div className="col-md-3 description">
             <p><b>PENDIENTS</b></p>
             <p>Typical Spanish. Hechos a mano.</p>
             <p>Bueno, bonito y barato</p>
@@ -179,6 +219,9 @@ export default function Buy() {
 
           <div className="col-md-2"></div>
         </div>
+
+        <RefranFooter/>
+
       </div>
     </>
 

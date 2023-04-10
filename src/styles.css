@@ -5,11 +5,15 @@ body {
 
 .navbar-custom {
   background-color: #d7d6d4;
+  color: black;
 }
-.navbar-custom span {
+.navbar-custom a {
   color: black;
 }
 
+.navbar-custom span {
+  margin: 15px;
+}
 
 .images-container{
   margin-left: 5%;
@@ -92,25 +96,28 @@ Link:focus {
 .color:hover{
   cursor: pointer;
 }
-/*
-.circle{
+
+.refran{
   display: flex;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
   justify-content: center;
-  align-items: center;
-  border:1px solid black;
-  margin-left: 7%;
-  cursor: pointer;
+  margin: 25px;
+  text-align: center;
 }
 
-.circle-gold{
-  background-color: gold;
-  color: gold;
+.plata_oro{
+  text-decoration: none;
+  color: black;
+}
+.plata_oro:hover{
+  text-decoration: underline;
+  color: black;
 }
 
-.circle-silver{
-  background-color: silver;
-  color: silver;
-} */
+.links_plata_oro{
+  margin-left: 150px;
+}
+
+.description{
+  margin-top: 20px;
+  margin-left: 20px;
+}

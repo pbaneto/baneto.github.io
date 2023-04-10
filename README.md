@@ -75,7 +75,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 https://github.com/paypal-examples/react-integration
 
 ## TODO
-- aniadir loading en el dropdown de comprar import { CircularProgress } from '@mui/material';
-- refranes aleatorios abajo en la foto
 - contacto
-- recortar fotos
+
+Fotos que faltan
+- caras doradas
+- lunas
+- aros pequenios
+- manos plateadas y doradas
+- snoppies
+- setas

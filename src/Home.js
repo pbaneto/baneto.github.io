@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 import './styles.css';
 import NavBar from './NavBar';
 
@@ -21,39 +20,52 @@ function Modelo({modelo, color, price}){
   );
 }
 
-function GridModels(){
+
+function GridModels(color){
+  var chosen_color;
+  if (color.color === ""){
+    chosen_color = "plata";
+  }else{
+    chosen_color = color.color;
+  }
   return(
-    <div className='images-container'>
-      <Grid container >
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'aros'} color={'plata'} price={12}/>
+    <div>
+      <div className='images-container'>
+        <Grid container >
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'aros'} color={chosen_color} price={12}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'cactus'} color={chosen_color} price={7}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'plumas'} color={chosen_color} price={7}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'caras'} color={'plata'} price={10}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'hojas'} color={'oro'} price={7}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'colgantes'} color={'oro'} price={7}/>
+          </Grid>
         </Grid>
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'cactus'} color={'plata'} price={7}/>
-        </Grid>
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'plumas'} color={'plata'} price={7}/>
-        </Grid>
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'caras'} color={'plata'} price={10}/>
-        </Grid>
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'hojas'} color={'oro'} price={7}/>
-        </Grid>
-        <Grid item xm={12} sm={6} md={4}>
-          <Modelo modelo={'colgantes'} color={'oro'} price={7}/>
-        </Grid>
-      </Grid>
+      </div>
     </div>
+
   );
 }
 
 
 export default function Home() {
+  const location = useLocation();
+  var color = location.pathname.split('/')[1];
+
   return (
     <section>
       <NavBar />
-      <GridModels />
+      <GridModels color={color} />
     </section>
   );
 };
