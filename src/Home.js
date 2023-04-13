@@ -5,14 +5,18 @@ import './styles.css';
 import NavBar from './NavBar';
 
 
-function Modelo({modelo, color, price}){
+function Modelo({modelo, color, price, color_option}){
   let photo_name = [modelo, color].join('_')
+
+  var refranes = require('./refranes/refranes.json');
+  var index_refran = Math.floor(Math.random() * (refranes.length  + 1));
+
   return(
     <div className="card-custom">
       <div className='nombre-precio'>
-        <Link to="/buy" className='comprate_algo' state={{modelo: modelo, color:color, price: price}}>
+        <Link to="/buy" className='comprate_algo' state={{modelo: modelo, color:color, price: price, color_option: color_option, index_refran: index_refran}}>
           <img className='img-fluid' src={require(`./photos/modelos/${photo_name}.jpg`)} alt={photo_name}/>
-          Comprar
+          {modelo}
           <span className='price'>{price} €</span>
         </Link>
       </div>
@@ -24,7 +28,7 @@ function Modelo({modelo, color, price}){
 function GridModels(color){
   var chosen_color;
   if (color.color === ""){
-    chosen_color = "plata";
+    chosen_color = "plateado";
   }else{
     chosen_color = color.color;
   }
@@ -33,22 +37,22 @@ function GridModels(color){
       <div className='images-container'>
         <Grid container >
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'aros'} color={chosen_color} price={12}/>
+            <Modelo modelo={'aros'} color={chosen_color} price={12} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'cactus'} color={chosen_color} price={7}/>
+            <Modelo modelo={'cactus'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'plumas'} color={chosen_color} price={7}/>
+            <Modelo modelo={'plumas'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'caras'} color={'plata'} price={10}/>
+            <Modelo modelo={'caras'} color={'plateado'} price={10} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'hojas'} color={'oro'} price={7}/>
+            <Modelo modelo={'hojas'} color={'dorado'} price={7} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'colgantes'} color={'oro'} price={7}/>
+            <Modelo modelo={'colgantes'} color={'dorado'} price={7} color_option={false}/>
           </Grid>
         </Grid>
       </div>

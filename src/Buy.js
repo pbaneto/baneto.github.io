@@ -15,7 +15,7 @@ function UriPendientes(photo_name){
     <div className="container-fluid">
       <p>
         <span>
-          <Link to="/" className="uri-pendientes">Pendients</Link>
+          <Link to="/" className="uri-pendientes">Pendientes</Link>
         </span>
         <span>/</span>
         <span className="uri-modelo">
@@ -39,24 +39,26 @@ function PhotoZoom(uri){
 }
 
 
-function RefranFooter(){
+function RefranFooter(index_refran){
 
   var refranes = require('./refranes/refranes.json');
-  var random_index = Math.floor(Math.random() * (refranes.length  + 1));
 
   return(
-    <div className="row">
-    <div className="col-md-2"></div>
-    <div className="col-md-5 refran">
+    <div className="row refran">
       <p><i><q>
-        {refranes[random_index]}
+        {refranes[index_refran.index_refran]}
       </q></i></p>
-    </div>
-    <div className="col-md-5"></div>
   </div>
   );
 }
 
+
+
+function photoUris(photo_name){
+  return [{ uri: 'modelos/' + photo_name, isActive: true },
+        { uri: 'ear/' + photo_name + '_bn', isActive: false },
+        { uri: 'ear/' + photo_name + '_c', isActive: false },]
+}
 
 
 export default function Buy() {
@@ -65,6 +67,8 @@ export default function Buy() {
   const location = useLocation();
   let modelo = location.state.modelo;
   let price = location.state.price;
+  let color_option = location.state.color_option;
+  let index_refran = location.state.index_refran;
 
   const [colorActual, newColor] = useState(location.state.color);
   const changeColor = (color) => {
@@ -73,18 +77,20 @@ export default function Buy() {
   let photo_name = [modelo, colorActual].join('_');
 
 
-  const [isShown, setIsShown] = useState(false);
+  const [isShown_comprar, setIsShown_comprar] = useState(false);
   const showBuy = Event => {
-    setIsShown(current => !current);
+    setIsShown_comprar(current => !current);
   };
 
-  function photoUris(photo_name){
-    return [{ uri: 'modelos/' + photo_name, isActive: true },
-            { uri: 'ear/' + photo_name + '_bn', isActive: false },
-            { uri: 'ear/' + photo_name + '_c', isActive: false },]
-  }
+
+  const [isShown_description, setIsShown_description] = useState(false);
+  const showDescription = Event => {
+    setIsShown_description(current => !current);
+  };
+
 
   const [photos, setPhotos] = useState(photoUris(photo_name));
+
 
   useEffect(() => {
     setPhotos(photoUris(photo_name));
@@ -167,27 +173,45 @@ export default function Buy() {
             </div>
           </div>
 
-          <div className="col-md-3 description">
-            <p><b>PENDIENTS</b></p>
-            <p>Typical Spanish. Hechos a mano.</p>
-            <p>Bueno, bonito y barato</p>
-            <p>Envío a domicilio.</p>
+          <div className="col-md-4 description">
+            <RefranFooter index_refran={index_refran}/>
+            <p><b>PENDIENTES</b></p>
 
-            <p>Elige un color:
-              <span className="color" onClick={() => changeColor('oro')}> <u>oro</u></span> /
-              <span className="color" onClick={() => changeColor('plata')}> <u>plata</u></span>
-            </p>
+            <div>
+              <button id="button-buy" onClick={showDescription}>
+                <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"
+                  style={{
+                    transform: isShown_description ? 'rotate(0deg)': 'rotate(-90deg)'
+                  }}/>
+                <b> Descripción</b>
+              </button>
+            </div>
+            {isShown_description && (
+              <div>
+                <p>Typical Spanish. Hechos a mano.</p>
+                <p>Bueno, bonito y barato</p>
+                <p>Envío a domicilio.</p>
+
+                {/* Check which color exists */}
+                {color_option ?
+                  <p>Elige un color:
+                    <span className="color" onClick={() => changeColor('dorado')}> <u>dorado</u></span> /
+                    <span className="color" onClick={() => changeColor('plateado')}> <u>plateado</u></span>
+                  </p>:
+                  <p>Solo hay disponibles en {colorActual}</p>}
+              </div>
+              )}
 
             <div>
               <button id="button-buy" onClick={showBuy}>
                 <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"
                   style={{
-                    transform: isShown ? 'rotate(0deg)': 'rotate(180deg)'
+                    transform: isShown_comprar ? 'rotate(0deg)': 'rotate(-90deg)'
                   }}/>
                 <b> Comprar</b>
               </button>
             </div>
-            {isShown && (
+            {isShown_comprar && (
             <PayPalScriptProvider options={{"client-id": CLIENT_ID, "currency": "EUR" }}>
               <div className="App">
                 <header className="App-header">
@@ -217,11 +241,8 @@ export default function Buy() {
 
           </div>
 
-          <div className="col-md-2"></div>
+          {/* <div className="col-md-2"></div> */}
         </div>
-
-        <RefranFooter/>
-
       </div>
     </>
 

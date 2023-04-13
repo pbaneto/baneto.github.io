@@ -75,7 +75,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 https://github.com/paypal-examples/react-integration
 
 ## TODO
-- contacto
+- contacto con descripcion de mi en una pagina nueva
+- alinear tres fotos pequenas vista movil
+- arreglar que cuando se cambie de foto en el carousel se cambie tambien en las miniaturas
+- preguntar a telva si puedo usar sus fotos
+
 
 Fotos que faltan
 - caras doradas

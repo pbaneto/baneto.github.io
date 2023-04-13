@@ -75,7 +75,7 @@ Link:focus {
 #arrow-buy {
   width: 10%;
   transform: rotate(180deg);
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 .uri-pendientes{

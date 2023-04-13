@@ -13,8 +13,8 @@ export default function NavBar(){
       </button> */}
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <a className="nav-link active" href="/oro">Oro</a>
-          <a className="nav-link" href="/plata">Plata</a>
+          <a className="nav-link active" href="/dorado">Dorado</a>
+          <a className="nav-link" href="/plateado">Plateado</a>
         </div>
       </div>
 
@@ -30,4 +30,3 @@ export default function NavBar(){
     </nav>
   );
 }
-
