@@ -27,7 +27,7 @@ function UriPendientes(photo_name){
 
 function PhotoZoom(uri){
   return(
-    <div>
+    <div className="photo-zoom-centrar">
       <InnerImageZoom
         src={require(`./photos/${uri.uri}.jpg`)}
         zoomScale={2}
@@ -90,7 +90,7 @@ export default function Buy() {
 
 
   const [photos, setPhotos] = useState(photoUris(photo_name));
-
+  console.log(photos)
 
   useEffect(() => {
     setPhotos(photoUris(photo_name));

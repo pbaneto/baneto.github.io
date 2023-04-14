@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './Home';
 import Buy from './Buy';
+import Contacto from './Contacto';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/buy" element={<Buy />}/>
         <Route exact path="/plateado" element={<Home />}/>
         <Route exact path="/dorado" element={<Home />}/>
+        <Route exact path="/contacto" element={<Contacto />}/>
       </Routes>
     </Router>
   );

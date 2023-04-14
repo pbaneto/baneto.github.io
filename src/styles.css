@@ -58,10 +58,16 @@ Link:focus {
 }
 
 
-.carousel-item{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* .carousel-item{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.photo-zoom-centrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #button-buy {
@@ -120,4 +126,20 @@ Link:focus {
 .description{
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.contacto{
+  margin-right: 25px;
+}
+
+.color-navbar{
+  margin-left: 20px;
+}
+
+.fondo-contacto{
+  height: 950px;
+}
+
+.col-picture{
+  padding-left: 0 !important;
 }

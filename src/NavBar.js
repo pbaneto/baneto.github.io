@@ -13,19 +13,21 @@ export default function NavBar(){
       </button> */}
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <a className="nav-link active" href="/dorado">Dorado</a>
-          <a className="nav-link" href="/plateado">Plateado</a>
+          <a className="color-navbar active" href="/dorado">Dorado</a>
+          <a className="color-navbar" href="/plateado">Plateado</a>
         </div>
       </div>
 
       <div>
-        <a href="https://www.instagram.com/baneto.es/" className='instagram' target={'_black'}>
-          <img src={require("./photos/instagram.png")} alt='instagram'/>
+        <a className="contacto" href="/contacto">Contacto</a>
+        <a href="https://www.instagram.com/baneto.es/" className='contacto' target={'_black'}>
+          Instagram
+          {/* <img src={require("./photos/instagram.png")} alt='instagram'/> */}
         </a>
 
-        <a href="/" className='instagram'>
+        {/* <a href="/" className='instagram'>
           <img alt='whatsapp' src="https://img.icons8.com/ios/50/null/whatsapp--v1.png"/>
-        </a>
+        </a> */}
       </div>
     </nav>
   );
