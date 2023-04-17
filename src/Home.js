@@ -46,7 +46,7 @@ function GridModels(color){
             <Modelo modelo={'plumas'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'caras'} color={'plateado'} price={10} color_option={false}/>
+            <Modelo modelo={'caras'} color={'plateado'} price={10} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'hojas'} color={'dorado'} price={7} color_option={false}/>
