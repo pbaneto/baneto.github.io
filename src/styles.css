@@ -31,14 +31,6 @@ Link:focus {
   outline: none;
 }
 
-.instagram{
-  width: 80px;
-}
-.instagram img{
-  width: 40px;
-  margin-right: 19px;
-}
-
 .comprate_algo{
   text-decoration: None;
   color:black;
@@ -128,18 +120,69 @@ Link:focus {
   margin-left: 20px;
 }
 
-.contacto{
-  margin-right: 25px;
-}
-
 .color-navbar{
   margin-left: 20px;
 }
 
 .fondo-contacto{
-  height: 950px;
+  width: 1050px;
 }
 
 .col-picture{
   padding-left: 0 !important;
+}
+
+.navbar-name{
+  display: inline-block;
+  margin-right: auto;
+  margin-left: 0;
+
+}
+.toggler-custom{
+  border: None;
+}
+.toggler-custom:hover{
+  background-color: #d7d6d4;
+}
+.toggler-custom:focus{
+  outline: none;
+  box-shadow: none;
+}
+.toggler-custom:active{
+  outline: none;
+  box-shadow: none;
+}
+.link-custom{
+  color:black !important;
+  margin-left: 15px;
+}
+.link-custom:hover{
+  color:black !important;
+  text-decoration: underline;
+}
+.footer{
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .col{
+  flex-grow: 1;
+  text-align: left;
+
+}
+.footer .row{
+  margin: 10px;
+}
+.contacto {
+  background: url('./photos/pintura_moncho.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.contacto .navbar-custom{
+  background-color: transparent !important;
+}
+
+.instagram img{
+  width: 34px;
 }

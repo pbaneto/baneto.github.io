@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css'
 import InnerImageZoom from 'react-inner-image-zoom'
-
+import Footer from './Footer';
 
 function UriPendientes(photo_name){
   let show = photo_name.photo_name.replace('_', ' ');
@@ -157,7 +157,7 @@ export default function Buy() {
 
           {/* Small devices */}
           <div className="col-md-1 d-block d-md-none">
-            <div className="row">
+            <div className="row justify-content-center">
               {photos.map((photo, index) => (
               <div className="col-3">
                 <img
@@ -244,6 +244,7 @@ export default function Buy() {
           {/* <div className="col-md-2"></div> */}
         </div>
       </div>
+      <Footer/>
     </>
 
   );

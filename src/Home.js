@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import { Link, useLocation } from "react-router-dom";
 import './styles.css';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 
 function Modelo({modelo, color, price, color_option}){
@@ -46,7 +47,7 @@ function GridModels(color){
             <Modelo modelo={'plumas'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'caras'} color={'plateado'} price={10} color_option={true}/>
+            <Modelo modelo={'caras'} color={chosen_color} price={10} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'hojas'} color={'dorado'} price={7} color_option={false}/>
@@ -54,12 +55,16 @@ function GridModels(color){
           <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'colgantes'} color={'dorado'} price={7} color_option={false}/>
           </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'miniaros'} color={'plateado'} price={10} color_option={false}/>
+          </Grid>
         </Grid>
       </div>
     </div>
 
   );
 }
+
 
 
 export default function Home() {
@@ -70,6 +75,7 @@ export default function Home() {
     <section>
       <NavBar />
       <GridModels color={color} />
+      <Footer/>
     </section>
   );
 };
