@@ -140,6 +140,7 @@ Link:focus {
 }
 .toggler-custom{
   border: None;
+  width: 100px;
 }
 .toggler-custom:hover{
   background-color: #d7d6d4;
@@ -161,28 +162,58 @@ Link:focus {
   text-decoration: underline;
 }
 .footer{
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  position: fixed;
+  bottom:0;
+  width: 100%;
 }
-.footer .col{
-  flex-grow: 1;
-  text-align: left;
-
+@media only screen and (max-width: 1550px) {
+  .footer {
+    position: static;
+    margin-top: 20px;
+  }
+}
+.col-instagram{
+  text-align: right;
+  padding-right: 30px;
+}
+.col-year{
+  width:160px;
 }
 .footer .row{
   margin: 10px;
 }
-.contacto {
-  background: url('./photos/pintura_moncho.jpg') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-}
-
-.contacto .navbar-custom{
-  background-color: transparent !important;
-}
-
 .instagram img{
-  width: 34px;
+  width: 27px;
+}
+
+/* @media (min-width: 768px) {
+  .contacto {
+    background: url('./photos/fondo_contacto.jpg') no-repeat left top;
+    background-size: auto 100%;
+    min-height: 87vh;
+  }
+} */
+
+.contacto{
+  height: 87vh;
+  display: flex;
+  align-items: center;
+}
+.contacto-img{
+  height: 100%;
+  width: auto;
+}
+
+
+.contacto-all{
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sobre{
+  margin-left: 30px;
+  margin-top:10px;
 }

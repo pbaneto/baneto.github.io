@@ -58,6 +58,9 @@ function GridModels(color){
           <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'miniaros'} color={'plateado'} price={10} color_option={false}/>
           </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'manos'} color={'plateado'} price={7} color_option={false}/>
+          </Grid>
         </Grid>
       </div>
     </div>

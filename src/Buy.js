@@ -189,7 +189,7 @@ export default function Buy() {
             {isShown_description && (
               <div>
                 <p>Typical Spanish. Hechos a mano.</p>
-                <p>Bueno, bonito y barato</p>
+                <p>En cuanto a los materiales, el plateado es más resistente porque es <i>acero ionxidable</i> y se queda el brillo mucho tiempo. El dorado también brilla pero se desgasta antes.</p>
                 <p>Envío a domicilio.</p>
 
                 {/* Check which color exists */}
