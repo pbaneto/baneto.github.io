@@ -196,24 +196,50 @@ Link:focus {
     min-height: 87vh;
   }
 } */
-
-.contacto{
-  height: 87vh;
-  display: flex;
-  align-items: center;
-}
-.contacto-img{
-  height: 100%;
-  width: auto;
-}
-
-
 .contacto-all{
   padding: 0px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 30px;
+}
+/* .contacto{
+  height: 100vh;
+  display: flex;
+  align-items: top;
+  /* flex-basis: 50%;
+} */
+.contacto-img{
+  display: flex;
+  align-items: top;
+  flex:1;
+  height: 60vh;
+  max-width: auto;
 }
 .sobre{
   margin-left: 30px;
-  margin-top:10px;
+  margin-top: 10px;
+  flex:1;
+}
+/* ipad */
+@media screen and (min-width: 500px) and (max-width: 900px){
+  .contacto-img{
+    max-width:auto;
+    height: 35vh;
+  }
+}
+/* movil */
+@media screen and (max-width: 500px) {
+  .contacto-all {
+    flex-direction: column;
+  }
+  .contacto-img{
+    max-width:100%;
+    height: auto;
+  }
+}
+
+
+.yo{
+  width:150px;
+  margin-left: 30px;
 }
