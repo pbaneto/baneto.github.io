@@ -10,13 +10,13 @@ import Contacto from './Contacto';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route exact path="/" element={<Home />}/>
-        <Route exact path="/buy" element={<Buy />}/>
-        <Route exact path="/plateado" element={<Home />}/>
-        <Route exact path="/dorado" element={<Home />}/>
-        <Route exact path="/contacto" element={<Contacto />}/>
+        <Route exact path="buy" element={<Buy />}/>
+        <Route exact path="plateado" element={<Home />}/>
+        <Route exact path="dorado" element={<Home />}/>
+        <Route exact path="contacto" element={<Contacto />}/>
       </Routes>
     </Router>
   );
