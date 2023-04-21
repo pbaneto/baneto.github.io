@@ -1,4 +1,3 @@
-import { LinearProgress } from '@mui/material';
 import React from 'react';
 import { useState } from "react";
 import { Link } from 'react-router-dom';
@@ -20,15 +19,14 @@ export default function NavBar() {
       </button>
       <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}>
         <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            {/* <a className="nav-link link-custom" href="/dorado">Dorado</a> */}
-            <Link to='/dorado'>Dorado</Link>
+          <li className="nav-item li-custom">
+            <Link to='/dorado' className='link-custom'>Dorado</Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link link-custom" href="/plateado">Plateado</a>
+          <li className="nav-item li-custom">
+            <Link to='/plateado' className='link-custom'>Plateado</Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link link-custom" href="/contacto">Sobre Baneto</a>
+          <li className="nav-item li-custom">
+            <Link to='/contacto' className='link-custom'>Sobre Baneto</Link>
           </li>
         </ul>
       </div>

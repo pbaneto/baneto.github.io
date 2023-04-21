@@ -153,6 +153,12 @@ Link:focus {
   outline: none;
   box-shadow: none;
 }
+.li-custom{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .link-custom{
   color:black !important;
   margin-left: 15px;
