@@ -161,7 +161,7 @@ Link:focus {
 }
 .link-custom{
   color:black !important;
-  margin-left: 15px;
+  margin-left: 20px;
 }
 .link-custom:hover{
   color:black !important;
@@ -195,6 +195,10 @@ Link:focus {
 .instagram img{
   width: 27px;
 }
+.instagram-name{
+  color:black !important;
+
+}
 
 /* @media (min-width: 768px) {
   .contacto {
@@ -219,7 +223,7 @@ Link:focus {
   display: flex;
   align-items: top;
   flex:1;
-  height: 60vh;
+  height: 40vh;
   max-width: auto;
 }
 .sobre{

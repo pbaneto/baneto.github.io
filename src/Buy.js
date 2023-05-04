@@ -30,7 +30,7 @@ function PhotoZoom(uri){
     <div className="photo-zoom-centrar">
       <InnerImageZoom
         src={require(`./photos/${uri.uri}.jpg`)}
-        zoomScale={2}
+        zoomScale={1}
         width={550}
         height={550}
       />
@@ -90,7 +90,6 @@ export default function Buy() {
 
 
   const [photos, setPhotos] = useState(photoUris(photo_name));
-  console.log(photos)
 
   useEffect(() => {
     setPhotos(photoUris(photo_name));
@@ -188,17 +187,21 @@ export default function Buy() {
             </div>
             {isShown_description && (
               <div>
+                <br></br>
                 <p>Typical Spanish. Hechos a mano.</p>
                 <p>En cuanto a los materiales, el plateado es más resistente porque es <i>acero ionxidable</i> y se queda el brillo mucho tiempo. El dorado también brilla pero se desgasta antes.</p>
-                <p>Envío a domicilio.</p>
-
+                <br></br>
+                <p>Precio {price}€.</p>
+                <p>Envío a domicilio 2€.</p>
+                <br></br>
                 {/* Check which color exists */}
                 {color_option ?
                   <p>Elige un color:
                     <span className="color" onClick={() => changeColor('dorado')}> <u>dorado</u></span> /
-                    <span className="color" onClick={() => changeColor('plateado')}> <u>plateado</u></span>
+                    <span className="color" onClick={() => changeColor('plateado')}> <u>plateado</u></span>.
                   </p>:
-                  <p>Solo hay disponibles en {colorActual}</p>}
+                  <p>Solo hay disponibles en {colorActual}.</p>}
+                  <br></br>
               </div>
               )}
 
@@ -212,16 +215,18 @@ export default function Buy() {
               </button>
             </div>
             {isShown_comprar && (
+
             <PayPalScriptProvider options={{"client-id": CLIENT_ID, "currency": "EUR" }}>
               <div className="App">
                 <header className="App-header">
+                  <br></br>
                   <PayPalButtons
                     createOrder={(data, actions) => {
                         return actions.order.create({
                             purchase_units: [
                                 {
                                     amount: {
-                                        value: price,
+                                        value: price + 2,  // 2 euros de envio
                                     },
                                 },
                             ],

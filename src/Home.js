@@ -44,22 +44,31 @@ function GridModels(color){
             <Modelo modelo={'cactus'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'caras'} color={chosen_color} price={10} color_option={true}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'plumas'} color={chosen_color} price={7} color_option={true}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'caras'} color={chosen_color} price={10} color_option={true}/>
+            <Modelo modelo={'manos'} color={chosen_color} price={7} color_option={true}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'lunas'} color={'plateado'} price={10} color_option={false}/>
+          </Grid>
+          <Grid item xm={12} sm={6} md={4}>
+            <Modelo modelo={'colgantes'} color={'dorado'} price={10} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
             <Modelo modelo={'hojas'} color={'dorado'} price={7} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'colgantes'} color={'dorado'} price={7} color_option={false}/>
+            <Modelo modelo={'mini aros'} color={'plateado'} price={12} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'miniaros'} color={'plateado'} price={10} color_option={false}/>
+            <Modelo modelo={'pez'} color={'plateado'} price={10} color_option={false}/>
           </Grid>
           <Grid item xm={12} sm={6} md={4}>
-            <Modelo modelo={'manos'} color={'plateado'} price={7} color_option={false}/>
+            <Modelo modelo={'snoopy'} color={'plateado'} price={12} color_option={false}/>
           </Grid>
         </Grid>
       </div>
