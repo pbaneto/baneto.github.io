@@ -6,8 +6,8 @@ export default function Contacto() {
         <div>
             <NavBar />
             <div className='container-fluid'>
-            <p>
-                Si tienes cualquier duda contactanos por mensaje directo en <a href="https://www.instagram.com/baneto.es/" className='instagram-name' target={'_black'}>instagram</a>, te responderemos con la mayor brevedad posible.
+            <p className='sobre'>
+                Si tienes cualquier duda contáctanos por mensaje directo en <a href="https://www.instagram.com/baneto.es/" className='instagram-name' target={'_black'}><b>instagram</b></a>, te responderemos con la mayor brevedad posible.
                 Muchas gracias.
             </p>
 
@@ -34,8 +34,6 @@ export default function Contacto() {
                     <img src={require('./photos/foto.png')} className='contacto-img' alt={'img-contacto'}></img>
                 </div>
                 <div className='sobre'>
-                    {/* <img src={require('./photos/foto.png')} className="yo"></img> */}
-                    {/* <b>Sobre Baneto</b> */}
 
                     <p>
                         Modelo uno rotate.
@@ -44,12 +42,12 @@ export default function Contacto() {
                     </p>
                     <p>
                         Me llamo Paula, tengo 26 años y me puse a hacer pendientes el famoso 2019 mientras estaba viviendo en Trento,
-                        donde el concilio. Surgió, basicamente, porque me encantan los pendientes y,
-                        en ese momento de mi vida, no era muy solvente que digamos asi que había que buscar una alternativa a comprarlos.
+                        donde el concilio. Surgió porque me encantan los pendientes y,
+                        en ese momento de mi vida, no era muy solvente que digamos, así que había que buscar una alternativa a comprarlos.
                     </p>
                     <p>
-                        Salieron cosas un poco feas, pero otras no estaban mal del todo y resultó que a
-                        la gente les gustaron. Así que si tu eres de esos ya sabes, like y subscríbete.
+                        Después de muchos intentos salieron cosillas que resultó que a la gente les gustaron.
+                        Así que si tu eres de ellos... ya sabes, like y subscríbete .
                     </p>
 
                 </div>
