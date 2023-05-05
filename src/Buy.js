@@ -91,6 +91,18 @@ export default function Buy() {
 
   const [photos, setPhotos] = useState(photoUris(photo_name));
 
+  // Checkbox enviar a domicilio
+  const [isChecked, setIsChecked] = useState(false);
+
+  function handleCheckboxChange() {
+    setIsChecked(!isChecked);
+  }
+
+  var envio = 0;
+  if (isChecked){
+    envio = 2;
+  }
+
   useEffect(() => {
     setPhotos(photoUris(photo_name));
   }, [photo_name])
@@ -192,7 +204,15 @@ export default function Buy() {
                 <p>En cuanto a los materiales, el plateado es más resistente porque es <i>acero ionxidable</i> y se queda el brillo mucho tiempo. El dorado también brilla pero se desgasta antes.</p>
                 <br></br>
                 <p>Precio {price}€.</p>
-                <p>Envío a domicilio 2€.</p>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
+                  />
+                  Envío a domicilio 2€.
+                </label>
+
                 <br></br>
                 {/* Check which color exists */}
                 {color_option ?
@@ -226,7 +246,7 @@ export default function Buy() {
                             purchase_units: [
                                 {
                                     amount: {
-                                        value: price + 2,  // 2 euros de envio
+                                        value: price + envio,  // 2 euros de envio
                                     },
                                 },
                             ],
