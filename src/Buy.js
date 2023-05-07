@@ -204,13 +204,13 @@ export default function Buy() {
                 <p>En cuanto a los materiales, el plateado es más resistente porque es <i>acero ionxidable</i> y se queda el brillo mucho tiempo. El dorado también brilla pero se desgasta antes.</p>
                 <br></br>
                 <p>Precio {price}€.</p>
-                <label>
+                <label className="envio">
                   <input
                     type="checkbox"
                     checked={isChecked}
                     onChange={handleCheckboxChange}
                   />
-                  Envío a domicilio 2€.
+                  <span>Envío a domicilio 2€.</span>
                 </label>
 
                 <br></br>
