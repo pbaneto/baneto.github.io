@@ -7,9 +7,14 @@ A minimalist static e-commerce website built using React, hosted on GitHub Pages
 Online payments have been integrated using [**paypal**](https://github.com/pbaneto/baneto.github.io)
 
 
-## Run it locally
+### Run it locally
 
 ```bash
 npm start
 ```
 
+### Deploy
+
+```bash
+gh-pages -d build
+```
