@@ -47,7 +47,7 @@ export default function Contacto() {
                     </p>
                     <p>
                         Después de muchos intentos salieron cosillas que resultó que a la gente les gustaron.
-                        Así que si tu eres de ellos... ya sabes, like y subscríbete .
+                        Así que si tu eres de ellos... ya sabes, like y subscríbete.
                     </p>
 
                 </div>

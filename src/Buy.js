@@ -190,9 +190,9 @@ export default function Buy() {
 
             <div>
               <button id="button-buy" onClick={showDescription}>
-                <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"
+                <img id="arrow-buy" src={require(`./photos/right-arrow.png`)} alt="arrow_buy"
                   style={{
-                    transform: isShown_description ? 'rotate(0deg)': 'rotate(-90deg)'
+                    transform: isShown_description ? 'rotate(90deg)': 'rotate(0deg)'
                   }}/>
                 <b> Descripción</b>
               </button>
@@ -227,9 +227,9 @@ export default function Buy() {
 
             <div>
               <button id="button-buy" onClick={showBuy}>
-                <img id="arrow-buy" src="https://svgshare.com/i/pUs.svg" alt="arrow_buy"
+                <img id="arrow-buy" src={require(`./photos/right-arrow.png`)} alt="arrow_buy"
                   style={{
-                    transform: isShown_comprar ? 'rotate(0deg)': 'rotate(-90deg)'
+                    transform: isShown_comprar ? 'rotate(90deg)': 'rotate(0deg)'
                   }}/>
                 <b> Comprar</b>
               </button>
